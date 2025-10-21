@@ -17,7 +17,7 @@ Uma aplicação simples de **listagem e adição de tarefas** construída com **
 ## ⚙️ Instalação do Projeto
 
 1. **Clone o repositório**  
- git clone https://github.com/BigodeMarine/testando-test-library.git
+ git clone https://github.com/BigodeMarine/testando-test-library.git  
  cd next15-last-try  
 2. **Instale as dependências**  
 npm install  
