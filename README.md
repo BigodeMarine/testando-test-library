@@ -17,7 +17,33 @@ Uma aplicação simples de **listagem e adição de tarefas** construída com **
 ## ⚙️ Instalação do Projeto
 
 1. **Clone o repositório**  
- git clone 
- cd next15-last-try
-2.**Instale as dependências**  
-npm install
+ git clone https://github.com/BigodeMarine/testando-test-library.git
+ cd next15-last-try  
+2. **Instale as dependências**  
+npm install  
+3. **Execute o servidor de desenvolvimento**  
+npm run dev  
+Acesse o projeto em:
+👉 http://localhost:3000  
+  
+## 🧪 Executando os Testes  
+ 1. **Rodar todos os testes**  
+  npm test    
+ 2. **Gerar relatório de cobertura**  
+  npm test -- --coverage  
+
+  🧠 Funcionalidades  
+
+  Exibe uma lista de tarefas simulada (como se viesse de uma API).
+
+Permite adicionar novas tarefas via formulário controlado.
+
+Conta o número total de tarefas com um hook personalizado.
+
+Inclui testes unitários para os principais fluxos:
+
+Validação e submissão do formulário de nova tarefa.
+
+Retorno correto do hook useContadorDeTarefas.
+
+Renderização da lista de tarefas.
