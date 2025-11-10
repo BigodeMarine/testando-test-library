@@ -1,24 +1,40 @@
 name: CI/CD Pipeline
 
 on:
-  push: 
-    branches: [main]
-  workflow_dispatch:
-  
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout do Código
-      - uses: actions/checkout@v5
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-      - name: Instalação do Node
-      - uses: actions/setup-node@v4
+jobs:
+  # 🧪 Etapa de Integração Contínua
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Clona o código
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Configura o Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          
-      - name: Instalação das Depêndencias
-      - run: npm install
-      
-      - name: Rodar Build
-      - run: npm run build
+          node-version: '20' # ou versão do seu projeto
+          cache: 'npm'
+
+      # 3️⃣ Instala dependências
+      - name: Install dependencies
+        run: npm ci
+
+      # 4️⃣ Valida o código com ESLint
+      - name: Run ESLint
+        run: npm run lint
+
+      # 5️⃣ Executa testes
+      - name: Run tests
+        run: npm run test
+
+      # 6️⃣ Build da aplicação
+      - name: Build project
+        run: npm run build
